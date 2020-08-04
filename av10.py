@@ -1,34 +1,43 @@
-a=[0]*5   #comprimento da linha
-soma=0         #contador
+from random import randint
 
-#forma a lista
-for i in range (5):
-    a[i]=[0]*5
-    for j in range(5):
-        a[i][j]=int(input())
+A = []
+B = []
+C = []
+i = 0
 
-#printa linha
-for i in a:
-    print(i)
+print('Digite os números desejados:')
 
-#soma das linhas
-for i in range(5):
-    for j in range(5):
-        soma+=a[i][j]
-    print(f'Soma da {i+1}ª linha = {soma}')
-    soma=0
+for j in range(6):
+    x = randint(1, 60)
+    if x not in B:
+        A.append(x)
 
-#pula 1 linha
-print()
+while i < 6:
+    x = int(input('-> '))
+    if x < 1 or x > 60:
+        print('Número inválido!')
+        continue
+    elif x in B:
+        print('Número já digitado!')
+    elif x not in B:
+        B.append(x)
+        i += 1
 
-#somas das colunas
-soma=0
-for i in range(5):
-    for j in range(5):
-        soma+=a[j][i]
-    print(f'Soma da {i+1}ª coluna = {soma}')
-    soma=0
+A.sort()
+B.sort()
 
+for i in A:
+    if i in B:
+        C.append(i)
 
-
-
+print(f'Números sorteados: \n{A}')
+if len(C) == 4:
+    print(f'Parabéns! Você acertou a quadra! Esses foram os números que você acertou: \n{C}')
+elif len(C) == 5:
+    print(f'Parabéns! Você acertou a quina! Esses foram os números que você acertou: \n{C}')
+elif len(C) == 6:
+    print(f'Parabéns! Você acertou a sena! Esses foram os números que você acertou: \n{C}')
+elif len(C) == 0:
+    print('Infelimente você não acertou nenhum número! Mais sorte na próxima vez!')
+else:
+    print(f'Você acertou {len(C)} número(s)! Aqui estão eles: \n{C}')

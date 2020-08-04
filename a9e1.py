@@ -1,13 +1,8 @@
-for cont in range(1,51):
-    med=float(input('Digite a média final:'))
-    if cont==1:
-        maior=med
-        menor=med
+for n in range(100,10000):
+    c=n//100
+    d=n%100
+    u=n%10
+    if n%2==0:
+        print('{} - {}'.format(n,c+d+u))
     else:
-        if med > maior:
-            maior = med
-        else:
-            if med<menor:
-                menor=med
-print('Maior nota: ',maior)
-print('Menor nota: ', menor)
+        print('{} - {}'.format(n,c*d*u))

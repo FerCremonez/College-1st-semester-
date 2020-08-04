@@ -1,15 +1,14 @@
-name='abc'
-pswrd='1234'
-cont=3
+user='fernando'
+password='12345'
+contador=3
 
-while cont>=1:
-    login=str(input('Usuário: '))
-    password=str(input('Senha: '))
-
-    if name==login and pswrd==password:
-        print('Login efetuado com sucesso!')
+while contador>0:
+    usuario=str(input('Usuário:'))
+    senha=str(input('Senha:'))
+    if usuario==user and senha==password:
+        print('Acesso permitido. Bem-vindo!')
         break
-
     else:
-        cont-=1
-        print('Login INCORRETO!',cont, 'tentativas restantes.')
+        print('Acesso negado! Usuário e/ou senha incorretos')
+        contador-=1
+        print('Restam',contador,'chance(s)')
